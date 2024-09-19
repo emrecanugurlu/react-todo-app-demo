@@ -7,14 +7,29 @@ const AddToDoForm = (props) => {
 
     const addTodo = () => {
         if (header !== "" && description !== "" ) {
-            const newListItem = {
-                id : (props.todoList.length) + 1 ,
-                description : description ,
-                header : header
+            if (props.todoList.length === 0){
+                const newListItem = {
+                    id : 1,
+                    description : description ,
+                    header : header
+                }
+
+                console.log(newListItem)
+                props.setTodoList([...props.todoList,newListItem]);
+                setHeader("");
+                setDescription("");
+            }else{
+                const newListItem = {
+                    id : (props.todoList[(props.todoList.length)-1].id) + 1,
+                    description : description ,
+                    header : header
+                }
+
+                console.log(newListItem)
+                props.setTodoList([...props.todoList,newListItem]);
+                setHeader("");
+                setDescription("");
             }
-            props.setTodoList([...props.todoList,newListItem]);
-            setHeader("");
-            setDescription("");
         }
     }
 

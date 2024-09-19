@@ -5,10 +5,10 @@ const ToDoTableItem = (props) => {
 
     const setTodoList = useContext(FunctionContext);
 
-    const deleteTodoItem = (deletedId) => {
+    const deleteTodoItem = (deletedNo) => {
         setTodoList(
             props.todoList.filter((listItem) => {
-                return listItem.id !== deletedId
+                return listItem.id !== deletedNo
             })
         )
     }
